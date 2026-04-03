@@ -14,6 +14,7 @@ class MessageBus:
     """
 
     def __init__(self):
+        # 这类异步相关的代码是真不理解，特别是不知道什么时候该写异步代码，这类得重点学习了，感觉特别重要（似乎有关队列的一般都用异步）
         self.inbound: asyncio.Queue[InboundMessage] = asyncio.Queue()
         self.outbound: asyncio.Queue[OutboundMessage] = asyncio.Queue()
 
