@@ -43,6 +43,8 @@ class ProviderSpec:
     # gateway / local detection
     is_gateway: bool = False  # routes any model (OpenRouter, AiHubMix)
     is_local: bool = False  # local deployment (vLLM, Ollama)
+    # 这个似乎没有被使用.如果未来需要支持“仅凭密钥自动匹配”，可以在 _match_provider 中增加一个检查：
+    # 如果当前轮询到的提供商有 detect_by_key_prefix，并且用户配置的 api_key 以该前缀开头，则优先匹配。
     detect_by_key_prefix: str = ""  # match api_key prefix, e.g. "sk-or-"
     detect_by_base_keyword: str = ""  # match substring in api_base URL
     default_api_base: str = ""  # OpenAI-compatible base URL for this provider
